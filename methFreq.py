@@ -23,13 +23,7 @@ def main(filename, headerRow, decimalPlaces):
     formatString = "{0:." + str(decimalPlaces) + "f}"
    
     # Do the work
-    try:
-      handle = open(filename, "rU")
-    except IOError as e:
-      print "I/O error({0}): {1}".format(e.errno, e.strerror)
-    except:
-      print "Unexpected error:", sys.exc_info()[0]
-      raise
+    with open(filename, "rU") as handle:
 
     if headerRow:
         headFunc(("SeqID",

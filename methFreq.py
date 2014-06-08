@@ -111,16 +111,14 @@ def main(filename, headerRow, decimalPlaces):
                   CpHpH_OE = None
                   
                   # Ncount
-                  # Check calc with pair totals
                   nCount = len(record.seq) - sum(baseTotals.values())
-                  ##nCount = len(record.seq) - sum(pairTotals.values())
 
                   if seqlen > 0:
                       probA = baseTotals['A'] / seqlen
                       probT = baseTotals['T'] / seqlen
                       probG = baseTotals['G'] / seqlen
                       probC = baseTotals['C'] / seqlen
-                      probH = (1 - baseTotals['G']) / seqlen
+                      probH = (1 - probG)
 
                   # Only need to validate that you are not going to divide by zero.
 
@@ -195,6 +193,11 @@ def main(filename, headerRow, decimalPlaces):
                             str(CpHpH_OBS),
                             str(CpHpH_EXP),
                             str(CpHpH_OE),
+                            str(probA),
+                            str(probT),
+                            str(probG),
+                            str(probC),
+                            str(probH),
                             ))
 
               # Update counters and trackers
@@ -214,7 +217,7 @@ def writeTab(record):
 
 if __name__=='__main__':
   ### Argument handling
-  arg_parser = argparse.ArgumentParser(description='Script description');
+  arg_parser = argparse.ArgumentParser(description='Calculate observed vs expected instances of DNA-methylation motifs in gene sequences');
   arg_parser.add_argument("filename", help="A fasta file containing DNA coding sequences");
   arg_parser.add_argument("-H", "--header", type=bool, default=True, help="Print header row on tab delimited output");
   arg_parser.add_argument("-d", "--decimal", type=int, default=3, help="Format values to x decimal places");

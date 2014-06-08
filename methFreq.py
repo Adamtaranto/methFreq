@@ -32,7 +32,7 @@ def main(filename, headerRow, decimalPlaces):
                     "N_Count",
                     "CpG_OBS",
                     "CpG_EXP",
-                    "CpG_OE"
+                    "CpG_OE",
                     "CpHpG_OBS",
                     "CpHpG_EXP",
                     "CpHpG_OE",
@@ -135,7 +135,7 @@ def main(filename, headerRow, decimalPlaces):
                       CpG_EXP = formatString.format(CpG_EXP_Num)
 
                       # CpG_OE
-                      if CpG_EXP_Num > 0:
+                      if CpG_EXP_Num != 0:
                           CpG_OE_Num = CpG_OBS_Num / CpG_EXP_Num
                           CpG_OE = formatString.format(CpG_OE_Num)
 
@@ -151,7 +151,7 @@ def main(filename, headerRow, decimalPlaces):
                       CpHpG_EXP = formatString.format(CpHpG_EXP_Num)
 
                       # CpHpG_OE
-                      if CpHpG_EXP_Num > 0:
+                      if CpHpG_EXP_Num != 0:
                           CpHpG_OE_Num = CpHpG_OBS_Num / CpHpG_EXP_Num
                           CpHpG_OE = formatString.format(CpHpG_OE_Num)
 

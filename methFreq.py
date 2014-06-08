@@ -193,11 +193,6 @@ def main(filename, headerRow, decimalPlaces):
                             str(CpHpH_OBS),
                             str(CpHpH_EXP),
                             str(CpHpH_OE),
-                            str(probA),
-                            str(probT),
-                            str(probG),
-                            str(probC),
-                            str(probH),
                             ))
 
               # Update counters and trackers
